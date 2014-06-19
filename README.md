@@ -1,4 +1,4 @@
-InProcessRouter
+MiniVan
 ===============
 
-In-process, in-memory message bus / router component in C#
+MiniVan because it is a small in-process, message bus.
