@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniVan", "src\MiniVan\MiniVan.csproj", "{B94EDE09-A3D0-4079-A938-2DD0FFFF546C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniVan.Tests", "src\MiniVan.Tests\MiniVan.Tests.csproj", "{C35396B7-C533-44DA-AFCF-064169607AD3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B94EDE09-A3D0-4079-A938-2DD0FFFF546C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94EDE09-A3D0-4079-A938-2DD0FFFF546C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94EDE09-A3D0-4079-A938-2DD0FFFF546C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94EDE09-A3D0-4079-A938-2DD0FFFF546C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C35396B7-C533-44DA-AFCF-064169607AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C35396B7-C533-44DA-AFCF-064169607AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C35396B7-C533-44DA-AFCF-064169607AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C35396B7-C533-44DA-AFCF-064169607AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
