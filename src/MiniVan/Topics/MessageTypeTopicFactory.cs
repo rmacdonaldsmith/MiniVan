@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace MiniVan.Topics
 {
-	public sealed class MessageTypeTopics : ITopicFactory<Type>
+	public sealed class MessageTypeTopicFactory : ITopicFactory<Type>
     {
         private readonly ConcurrentDictionary<Type, string[]> _topics = new ConcurrentDictionary<Type, string[]>();
 
-        public IList<string> GetTopicsFor(Type type)
+        public IEnumerable<string> GetTopicsFor(Type type)
         {
             var topics = _topics.GetOrAdd(type, t => GetMessageTopics(t).ToArray());
             return topics.ToList();

@@ -5,7 +5,7 @@ namespace MiniVan.Topics
 {
 	public interface ITopicFactory<T>
 	{
-		IList<string> GetTopicsFor (T item);
+		IEnumerable<string> GetTopicsFor (T item);
 	}
 }
 

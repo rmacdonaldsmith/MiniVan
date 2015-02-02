@@ -9,7 +9,7 @@ namespace MiniVan
     public class Bus_Multiplexer : IBus
     {
 		private static readonly ILog Logger = LogManager.GetLogger(typeof(Bus));
-        private readonly ITopicFactory<Type> _messageTypeTopics = new MessageTypeTopics();
+        private readonly ITopicFactory<Type> _messageTypeTopics = new MessageTypeTopicFactory();
         private readonly ConcurrentDictionary<string, Multiplexer<IMessage>> _subscribers
             = new ConcurrentDictionary<string, Multiplexer<IMessage>>();
 		private readonly ConcurrentDictionary<string, IDispatchMessages> _queryHandlers

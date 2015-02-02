@@ -12,7 +12,7 @@ namespace MiniVan
 	//wrapped IConsumer<T> instance - avoids the generics poking through in to the client facing Bus class
 	public class Bus : IBus
     {
-        private readonly ITopicFactory<Type> _messageTypeTopics = new MessageTypeTopics();
+		private readonly ITopicFactory<Type> _topicFactory = new MessageTypeTopicFactory();
 		private readonly ConcurrentDictionary<string, List<IDispatchMessages>> _subscribers = 
 			new ConcurrentDictionary<string, List<IDispatchMessages>>();
 		private readonly ConcurrentDictionary<string, IDispatchQueries> _queryHandlers =
@@ -20,10 +20,10 @@ namespace MiniVan
 
         public void Send(IMessage message)
         {
-            var topics = _messageTypeTopics.GetTopicsFor(message.GetType());
-            foreach (var topic in topics)
+            var topics = _topicFactory.GetTopicsFor(message.GetType());
+			foreach (var type in topics)
             {
-                SendToTopic(topic, message);
+                SendToTopic(type, message);
             }
         }
 

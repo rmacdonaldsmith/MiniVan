@@ -66,7 +66,6 @@
     <Compile Include="Consumers\MessageDispatcher.cs" />
     <Compile Include="Bus.cs" />
     <Compile Include="Topics\ITopicFactory.cs" />
-    <Compile Include="Topics\MessageTypeTopics.cs" />
     <Compile Include="Topics\ITopic.cs" />
     <Compile Include="ISendMessages.cs" />
     <Compile Include="IHandleQueries.cs" />
@@ -78,6 +77,7 @@
     <Compile Include="IMessage.cs" />
     <Compile Include="Ensure.cs" />
     <Compile Include="IRequest.cs" />
+    <Compile Include="Topics\MessageTypeTopicFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
