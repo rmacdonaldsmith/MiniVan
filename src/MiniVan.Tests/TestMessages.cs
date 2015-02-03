@@ -9,7 +9,7 @@
 
 		public class ADerivedTestMessage : TestMessage
 		{
-
+			public string Id { get; set; }
 		}
 
 		public class SiblingOfADerivedTestMessage : TestMessage

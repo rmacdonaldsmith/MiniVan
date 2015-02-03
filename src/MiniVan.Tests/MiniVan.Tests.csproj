@@ -60,6 +60,7 @@
     <Compile Include="HandlingMessages\WhenPublishingOneMessageToManySubscribers.cs" />
     <Compile Include="HandlingQueries\WhenNoQueryHandlerRegistered.cs" />
     <Compile Include="HandlingQueries\TestRequests.cs" />
+    <Compile Include="Concurrency\TwoProducersOneConsumer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MiniVan\MiniVan.csproj">
@@ -79,6 +80,7 @@
   <ItemGroup>
     <Folder Include="HandlingQueries\" />
     <Folder Include="HandlingMessages\" />
+    <Folder Include="Concurrency\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
