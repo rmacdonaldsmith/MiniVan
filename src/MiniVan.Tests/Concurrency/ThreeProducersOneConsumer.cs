@@ -8,11 +8,12 @@ using System.Threading;
 namespace MiniVan.Tests.Concurrency
 {
 	[TestFixture]
-	public class TwoProducersOneConsumer
+	public class ThreeProducersOneConsumer
 	{
-		private int _numberOfMessagesToSend = 10000;
+		private int _numberOfMessagesToSend = 1000;
 		private List<TestMessages.ADerivedTestMessage> _receivedMessages = new List<TestMessages.ADerivedTestMessage> ();
 		private IBus _bus;
+		private Random _rnd = new Random();
 
 		[TestFixtureSetUp]
 		public void WhenSendingMessages()
@@ -27,19 +28,22 @@ namespace MiniVan.Tests.Concurrency
 		[Test]
 		public void ShouldReceiveTheExpectedNumberOfMessages()
 		{
-			Assert.AreEqual (_numberOfMessagesToSend * 2, _receivedMessages.Count);
+			Assert.AreEqual (_numberOfMessagesToSend * 3, _receivedMessages.Count);
 		}
 
 		private void RunAsync()
 		{
 			var t1 = new Thread (new ThreadStart (Producer1));
 			var t2 = new Thread (new ThreadStart (Producer2));
+			var t3 = new Thread (new ThreadStart (Producer3));
 
 			t1.Start ();
 			t2.Start ();
+			t3.Start ();
 
 			t1.Join ();
 			t2.Join ();
+			t3.Join ();
 		}
 
 		private void Producer1()
@@ -56,9 +60,17 @@ namespace MiniVan.Tests.Concurrency
 				}
 		}
 
+		private void Producer3()
+		{
+			for (int i = 0; i < _numberOfMessagesToSend; i++) {
+				_bus.Send (new TestMessages.ADerivedTestMessage{ Id = "P3-" + i });
+			}
+		}
+
 		private void HandleReceived(TestMessages.ADerivedTestMessage msg)
 		{
 			lock (_receivedMessages) {
+				Thread.Sleep(_rnd.Next(5));
 				_receivedMessages.Add (msg);
 			}
 		}

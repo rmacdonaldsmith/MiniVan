@@ -60,7 +60,9 @@
     <Compile Include="HandlingMessages\WhenPublishingOneMessageToManySubscribers.cs" />
     <Compile Include="HandlingQueries\WhenNoQueryHandlerRegistered.cs" />
     <Compile Include="HandlingQueries\TestRequests.cs" />
-    <Compile Include="Concurrency\TwoProducersOneConsumer.cs" />
+    <Compile Include="Concurrency\ThreeProducersOneConsumer.cs" />
+    <Compile Include="Concurrency\OneProducerThreeConsumers.cs" />
+    <Compile Include="Concurrency\ThreeProducersThreeConsumers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MiniVan\MiniVan.csproj">

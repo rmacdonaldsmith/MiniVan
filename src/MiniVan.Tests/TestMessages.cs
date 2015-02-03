@@ -4,12 +4,12 @@
 	{
 		public class TestMessage : IMessage
 		{
-
+			public string Id { get; set; }
 		}
 
 		public class ADerivedTestMessage : TestMessage
 		{
-			public string Id { get; set; }
+
 		}
 
 		public class SiblingOfADerivedTestMessage : TestMessage
