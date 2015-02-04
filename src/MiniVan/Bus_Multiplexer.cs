@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using MiniVan.Consumers;
 using MiniVan.Topics;
 using log4net;
+using System.Collections.Generic;
 
 namespace MiniVan
 {
@@ -10,8 +11,8 @@ namespace MiniVan
     {
 		private static readonly ILog Logger = LogManager.GetLogger(typeof(Bus));
         private readonly ITopicFactory<Type> _messageTypeTopics = new MessageTypeTopicFactory();
-        private readonly ConcurrentDictionary<string, Multiplexer<IMessage>> _subscribers
-            = new ConcurrentDictionary<string, Multiplexer<IMessage>>();
+        private readonly ConcurrentDictionary<string, List<IMessage>> _subscribers
+            = new ConcurrentDictionary<string, List<IMessage>>();
 		private readonly ConcurrentDictionary<string, IDispatchMessages> _queryHandlers
 			= new ConcurrentDictionary<string, IDispatchMessages> ();
 
@@ -37,20 +38,20 @@ namespace MiniVan
 
         private void SendToTopic(string topic, IMessage message)
         {
-            Multiplexer<IMessage> multiplexer;
+            List<IMessage> multiplexer;
             if (_subscribers.TryGetValue(topic, out multiplexer))
                 multiplexer.Handle(message);
         }
 
 		public void Subscribe<T>(IConsume<T> consumer) where T : class, IMessage
         {
-			var wideningConsumer = new WideningConsumer<T, IMessage>(consumer);
+			//var wideningConsumer = new WideningConsumer<T, IMessage>(consumer);
 			_subscribers.AddOrUpdate (
 				typeof(T).FullName,
 				s => 
-					new Multiplexer<IMessage> (wideningConsumer),
+					new List<IMessage> (consumer),
 				(_, multiplexer) => {
-					multiplexer.Attach (wideningConsumer);
+					multiplexer.Add (consumer);
 					return multiplexer;
 				});
         }

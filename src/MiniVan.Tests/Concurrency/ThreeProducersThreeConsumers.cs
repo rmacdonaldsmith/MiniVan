@@ -9,7 +9,7 @@ namespace MiniVan.Tests.Concurrency
 	public class ThreeProducersThreeConsumers
 	{
 		private readonly object _lockObject = new object();
-		private int _numberOfMessagesToSend = 1000;
+		private int _numberOfMessagesToSend = 100;
 		private List<IMessage> _consumer1Received = new List<IMessage> ();
 		private List<IMessage> _consumer2Received = new List<IMessage> ();
 		private List<IMessage> _consumer3Received = new List<IMessage> ();

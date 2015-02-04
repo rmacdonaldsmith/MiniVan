@@ -7,18 +7,18 @@ namespace MiniVan.Consumers
 {
 	public static class ConsumerExtensions
 	{
-		public static IConsume<TInput> WidenFrom<TInput, TOutput>(this IConsume<TOutput> handler)
-			where TOutput : IMessage
-			where TInput : TOutput
+		public static IConsume<TNarrowIn> WidenFrom<TNarrowIn, TWideOut>(this IConsume<TWideOut> handler)
+			where TWideOut : IMessage
+			where TNarrowIn : TWideOut
 		{
-			return null; //new WideningConsumer<TInput, TOutput>(handler);
+			return new WideningConsumer<TNarrowIn, TWideOut>(handler);
 		}
 
-		public static IConsume<TInput> NarrowTo<TInput, TOutput>(this IConsume<TOutput> handler)
-			where TInput : IMessage
-			where TOutput : TInput
+		public static IConsume<TWideIn> NarrowTo<TWideIn, TNarrowOut>(this IConsume<TNarrowOut> handler)
+			where TWideIn : IMessage
+			where TNarrowOut : TWideIn
 		{
-			return null; //new NarrowingConsumer<TInput, TOutput>(handler);
+			return new NarrowingConsumer<TWideIn, TNarrowOut>(handler);
 		}
 	}
 }

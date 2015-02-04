@@ -10,7 +10,7 @@ namespace MiniVan.Tests.Concurrency
 	[TestFixture]
 	public class ThreeProducersOneConsumer
 	{
-		private int _numberOfMessagesToSend = 1000;
+		private int _numberOfMessagesToSend = 100;
 		private List<TestMessages.ADerivedTestMessage> _receivedMessages = new List<TestMessages.ADerivedTestMessage> ();
 		private IBus _bus;
 		private Random _rnd = new Random();

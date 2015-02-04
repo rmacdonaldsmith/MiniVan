@@ -2,21 +2,20 @@
 
 namespace MiniVan.Consumers
 {
-	public class NarrowingConsumer<TInput, TOutput> : IConsume<TInput> 
-		where TOutput : TInput 
-		where TInput : IMessage
+	public class NarrowingConsumer<TWideIn, TNarrowOut> : IConsume<TWideIn> 
+		where TNarrowOut : TWideIn 
+		where TWideIn : IMessage
 	{
-		private readonly IConsume<TOutput> _innerConsumer;
+		private readonly IConsume<TNarrowOut> _innerConsumer;
 
-		public NarrowingConsumer (IConsume<TOutput> innerConsumer)
+		public NarrowingConsumer (IConsume<TNarrowOut> innerConsumer)
 		{
 			_innerConsumer = innerConsumer;
 		}
 
-		public void Handle(TInput message)
+		public void Handle(TWideIn message)
 		{
-			//this will throw if you cannot cast TWide to TNarrow
-			_innerConsumer.Handle ((TOutput)message);
+			_innerConsumer.Handle ((TNarrowOut)message);
 		}
 	}
 }
