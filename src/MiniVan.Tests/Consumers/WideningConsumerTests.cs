@@ -14,7 +14,7 @@ namespace MiniVan.Tests
 		public void CanHandleContravariantMessages ()
 		{
 			var handledMessages = new List<IMessage> ();
-			IConsume<TestMessages.ADerivedTestMessage> consumer = new FakeConsumer<TestMessages.ADerivedTestMessage> (msg => handledMessages.Add (msg));
+			IConsume<IMessage> consumer = new FakeConsumer<IMessage> (msg => handledMessages.Add (msg));
 			var wideningConsumer = new WideningConsumer<TestMessages.ADerivedTestMessage, IMessage>(consumer);
 
 			var message = new TestMessages.ADerivedTestMessage ();
