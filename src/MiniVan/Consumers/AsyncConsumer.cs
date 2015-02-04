@@ -17,6 +17,8 @@ namespace MiniVan.Consumers
 		public void Handle (T msg)
 		{
 			Task.Run(() => _inner.Handle(msg));
+			//do we need to catch any unhandled exceptions from the task?
+			//yes, because if we do not then that exception could take down the entire process.
 		}
 	}
 }
