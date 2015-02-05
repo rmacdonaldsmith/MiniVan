@@ -2,6 +2,8 @@
 using MiniVan.Consumers;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Threading.Tasks;
+using log4net;
 
 namespace MiniVan.Consumers
 {
@@ -10,6 +12,22 @@ namespace MiniVan.Consumers
 		public static IConsume<TMessage> AsAsyncConsumer<TMessage>(this IConsume<TMessage> consumerToWrap) where TMessage : IMessage
 		{
 			return new AsyncConsumer<TMessage>(consumerToWrap);
+		}
+
+		public static void LogAndSwallowExceptions(this Task task)
+		{
+			task.ContinueWith (t => {
+				var e = t.Exception;
+				LogManager.GetLogger("TaskContinuationExceptionHandler").ErrorFormat("Unhandled exception caught in Task [{0}]: {1}", t.Id, e);
+			}, TaskContinuationOptions.OnlyOnFaulted);
+		}
+
+		public static void ReThrowExceptions(this Task task)
+		{
+			task.ContinueWith (t => {
+				var e = t.Exception;
+				throw e;
+			}, TaskContinuationOptions.OnlyOnFaulted);
 		}
 
 		public static IConsume<TNarrowIn> WidenFrom<TNarrowIn, TWideOut>(this IConsume<TWideOut> handler)

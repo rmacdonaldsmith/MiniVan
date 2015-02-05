@@ -16,9 +16,12 @@ namespace MiniVan.Consumers
 
 		public void Handle (T msg)
 		{
-			Task.Run(() => _inner.Handle(msg));
+			var task = Task.Run(() => _inner.Handle(msg));
+			task.LogAndSwallowExceptions();
 			//do we need to catch any unhandled exceptions from the task?
 			//yes, because if we do not then that exception could take down the entire process.
+			//here, we use a continuation to check for an exception, then re-throw.
+			//alternatively we can use TaskScheduler.UnobservedTaskException to catch unhandled exceptions from a Task
 		}
 	}
 }
