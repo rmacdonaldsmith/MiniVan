@@ -78,6 +78,7 @@
     <Compile Include="IRequest.cs" />
     <Compile Include="Topics\MessageTypeTopicFactory.cs" />
     <Compile Include="Consumers\DelegatingConsumer.cs" />
+    <Compile Include="Consumers\QueuedConsumer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
