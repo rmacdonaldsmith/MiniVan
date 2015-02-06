@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 
-namespace MiniVan
+namespace MiniVan.Consumers
 {
 	public class QueuedConsumer<T> : IConsume<T> where T : IMessage
 	{
