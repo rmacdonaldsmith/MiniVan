@@ -65,6 +65,7 @@
     <Compile Include="Concurrency\ThreeProducersThreeConsumers.cs" />
     <Compile Include="Helpers\ConsumerFixture.cs" />
     <Compile Include="Consumers\QueuedConsumerTests.cs" />
+    <Compile Include="ExtensionMethodTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MiniVan\MiniVan.csproj">

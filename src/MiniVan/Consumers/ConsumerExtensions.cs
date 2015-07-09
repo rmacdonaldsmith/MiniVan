@@ -14,6 +14,11 @@ namespace MiniVan.Consumers
 			return new AsyncConsumer<TMessage>(consumerToWrap);
 		}
 
+		public static IConsume<TMessage> AsQueuedConsumer<TMessage>(this IConsume<TMessage> consumerToWrap) where TMessage : IMessage
+		{
+			return new QueuedConsumer<TMessage> (consumerToWrap);
+		}
+
 		public static void LogAndSwallowExceptions(this Task task)
 		{
 			task.ContinueWith (t => {

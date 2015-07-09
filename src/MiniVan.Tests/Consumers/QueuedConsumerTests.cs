@@ -33,16 +33,6 @@ namespace MiniVan.Tests
 			Thread.Sleep (100);
 			Assert.AreEqual (5, _received.Count);
 		}
-
-		[Test]
-		public void ItShouldExitOnSystemStopMessage()
-		{
-            _queuedConsumer.Handle(new TestMessages.TestMessage());
-            _queuedConsumer.Handle(new SystemMessage.Stop());
-            _queuedConsumer.Handle(new TestMessages.TestMessage());
-
-			Assert.AreEqual (1, _received.Count);
-		}
 	}
 }
 
