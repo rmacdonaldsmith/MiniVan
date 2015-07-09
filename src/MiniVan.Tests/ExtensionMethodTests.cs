@@ -11,7 +11,7 @@ namespace MiniVan.Tests
 		public void ShouldReturnAQueuedConsumer()
 		{
 			var innerConsumer = new Helpers.FakeConsumer<TestMessages.TestMessage> ();
-			var queuedConsumer = innerConsumer.AsQueued ();
+			var queuedConsumer = innerConsumer.AsQueuedConsumer ();
 
 			Assert.IsInstanceOf (typeof(QueuedConsumer<TestMessages.TestMessage>), queuedConsumer);
 		}
