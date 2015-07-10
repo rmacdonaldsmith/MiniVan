@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>MiniVan</title>
+    <authors>Robert Macdonald Smith</authors>
+    <owners>Robert Macdonald Smith</owners>
+    <projectUrl>https://github.com/rmacdonaldsmith/MiniVan</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>MiniVan because it is not as big as a bus. This is a small in-memory, in-process, message bus.</description>
+    <releaseNotes>Initial package creation</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags></tags>
+  </metadata>
+</package>
