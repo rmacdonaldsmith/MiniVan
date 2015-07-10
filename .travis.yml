@@ -1,2 +1,8 @@
 language: csharp
 solution: MiniVan.sln
+install:
+  - nuget restore MiniVan.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release MiniVan.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./src/MiniVan.Tests/bin/Debug/MiniVan.Tests.dll
