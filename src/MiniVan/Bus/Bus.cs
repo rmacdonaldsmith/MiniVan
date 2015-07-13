@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using log4net.Appender;
+using MiniVan.Bus.Builder;
 using MiniVan.Consumers;
 using MiniVan.Topics;
 
@@ -72,5 +74,10 @@ namespace MiniVan.Bus
         {
             _subscribers.Clear();
         }
+
+	    public static implicit operator Bus(BusBuilder builder)
+	    {
+	        return builder.Build();
+	    }
     }
 }

@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bus\Builder\BusBuilder.cs" />
     <Compile Include="Bus\IBus.cs" />
     <Compile Include="Consumers\IConsume.cs" />
     <Compile Include="Bus\ISendQueries.cs" />
