@@ -1,4 +1,6 @@
-﻿namespace MiniVan.Consumers
+﻿using MiniVan.Bus;
+
+namespace MiniVan.Consumers
 {
     /// <summary>
     /// A decorator over the IConsume interface.

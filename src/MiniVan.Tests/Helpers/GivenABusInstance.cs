@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using MiniVan.Bus;
+using MiniVan.Consumers;
 using NUnit.Framework;
 
 namespace MiniVan.Tests.Helpers
@@ -8,7 +10,7 @@ namespace MiniVan.Tests.Helpers
 	{
 		protected readonly List<IMessage> _routedMessages = new List<IMessage>();
 		private Action<IMessage> _handleMessageDelegate;
-		private Bus _bus = new Bus();
+		private Bus.Bus _bus = new Bus.Bus();
 
 		[TestFixtureSetUp]
 		public void Setup()

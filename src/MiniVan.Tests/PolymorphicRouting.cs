@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MiniVan.Bus;
 using NUnit.Framework;
 using MiniVan;
 using MiniVan.Tests.Helpers;

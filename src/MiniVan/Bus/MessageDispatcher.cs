@@ -1,6 +1,6 @@
-﻿using System;
+﻿using MiniVan.Consumers;
 
-namespace MiniVan.Consumers
+namespace MiniVan.Bus
 {
 	internal interface IDispatchMessages
 	{

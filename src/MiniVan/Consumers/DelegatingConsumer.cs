@@ -1,4 +1,5 @@
 ﻿using System;
+using MiniVan.Bus;
 
 namespace MiniVan.Consumers
 {

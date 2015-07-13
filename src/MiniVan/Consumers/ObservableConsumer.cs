@@ -4,6 +4,7 @@
 //using System.Reactive.Linq;
 //using System.Threading.Tasks;
 //using System.Reactive.Subjects;
+using MiniVan.Bus;
 
 namespace MiniVan.Consumers
 {

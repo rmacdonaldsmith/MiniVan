@@ -1,4 +1,5 @@
 ﻿using System;
+using MiniVan.Bus;
 using NUnit.Framework;
 using MiniVan.Tests.Helpers;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace MiniVan.Tests.Concurrency
 		public void WhenSendingMessages()
 		{
 			var consumer = new FakeConsumer<TestMessages.ADerivedTestMessage> (msg => HandleReceived(msg));
-			_bus = new Bus ();
+			_bus = new Bus.Bus ();
 			_bus.Subscribe (consumer);
 
 			RunAsync ();

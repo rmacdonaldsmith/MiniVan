@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using MiniVan.Bus;
+using MiniVan.Consumers;
 using NUnit.Framework;
 
 namespace MiniVan.Tests
