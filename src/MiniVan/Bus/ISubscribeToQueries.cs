@@ -1,4 +1,6 @@
-﻿namespace MiniVan
+﻿using MiniVan.Consumers;
+
+namespace MiniVan.Bus
 {
 	public interface ISubscribeToQueries
 	{

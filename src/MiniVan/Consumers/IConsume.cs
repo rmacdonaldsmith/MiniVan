@@ -1,4 +1,6 @@
-﻿namespace MiniVan
+﻿using MiniVan.Bus;
+
+namespace MiniVan.Consumers
 
 {
 	/// <summary>

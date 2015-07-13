@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MiniVan.Bus;
 using MiniVan.Tests.Helpers;
 using NUnit.Framework;
 using System.Threading;
@@ -23,7 +24,7 @@ namespace MiniVan.Tests.Concurrency
 			var c2 = new FakeConsumer<TestMessages.TestMessage> (msg => Consumer2(msg));
 			var c3 = new FakeConsumer<IMessage> (msg => Consumer3(msg));
 
-			_bus = new Bus ();
+			_bus = new Bus.Bus ();
 			_bus.Subscribe (c1);
 			_bus.Subscribe (c2);
 			_bus.Subscribe (c3);

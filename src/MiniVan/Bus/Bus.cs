@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using MiniVan.Consumers;
 using MiniVan.Topics;
 
-namespace MiniVan
+namespace MiniVan.Bus
 {
 	//playing arround with implementations
 	//this bus uses a List of a non-generic wrapper type that delegates messages to their

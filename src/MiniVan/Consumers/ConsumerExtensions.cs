@@ -1,4 +1,5 @@
 ﻿using System;
+using MiniVan.Bus;
 using MiniVan.Consumers;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;

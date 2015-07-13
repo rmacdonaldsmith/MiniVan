@@ -1,4 +1,6 @@
 ﻿using System;
+using MiniVan.Bus;
+using MiniVan.Consumers;
 
 namespace MiniVan.Tests.Helpers
 {

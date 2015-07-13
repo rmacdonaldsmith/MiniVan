@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MiniVan
+﻿namespace MiniVan.Bus
 {
 	public interface IMessage
 	{
