@@ -49,11 +49,9 @@
     <Reference Include="System.Reactive.PlatformServices">
       <HintPath>..\..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Packages\LibLog.4.2\LibLog.cs" />
     <Compile Include="Bus\IBus.cs" />
     <Compile Include="Consumers\IConsume.cs" />
     <Compile Include="Bus\ISendQueries.cs" />

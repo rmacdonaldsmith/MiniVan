@@ -1,10 +1,6 @@
-﻿using System;
-using MiniVan.Bus;
-using MiniVan.Consumers;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
+﻿using MiniVan.Bus;
 using System.Threading.Tasks;
-using log4net;
+using MiniVan.Logging;
 
 namespace MiniVan.Consumers
 {
@@ -24,7 +20,8 @@ namespace MiniVan.Consumers
 		{
 			task.ContinueWith (t => {
 				var e = t.Exception;
-				LogManager.GetLogger("TaskContinuationExceptionHandler").ErrorFormat("Unhandled exception caught in Task [{0}]: {1}", t.Id, e);
+                if (e != null)
+                    LogProvider.GetLogger(typeof(AsyncConsumer<>)).ErrorFormat("Unhandled exception in Task [{0}]: {1}", t.Id, e);
 			}, TaskContinuationOptions.OnlyOnFaulted);
 		}
 
@@ -32,7 +29,8 @@ namespace MiniVan.Consumers
 		{
 			task.ContinueWith (t => {
 				var e = t.Exception;
-				throw e;
+                if (e != null)
+				    throw e;
 			}, TaskContinuationOptions.OnlyOnFaulted);
 		}
 
