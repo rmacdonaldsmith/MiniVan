@@ -10,7 +10,7 @@ namespace MiniVan.Consumers
 
 		public AsyncConsumer (IConsume<T> inner)
 		{
-			Ensure.NotNull (inner, "inner");
+			Ensure.NotNull (inner, nameof(inner));
 
 			_inner = inner;
 		}

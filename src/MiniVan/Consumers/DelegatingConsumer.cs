@@ -9,7 +9,7 @@ namespace MiniVan.Consumers
 
 		public DelegatingConsumer (Action<T> delegatingAction)
 		{
-			Ensure.NotNull (delegatingAction, "delegatingAction");
+			Ensure.NotNull (delegatingAction, nameof(delegatingAction));
 			_delegate = delegatingAction;
 		}
 

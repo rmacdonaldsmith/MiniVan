@@ -13,7 +13,7 @@ namespace MiniVan.Bus
 
 		public MessageDispatcher(IConsume<T> consumer)
 		{
-			Ensure.NotNull (consumer, "consumer");
+			Ensure.NotNull (consumer, nameof(consumer));
 			_consumer = consumer;
 		}
 
