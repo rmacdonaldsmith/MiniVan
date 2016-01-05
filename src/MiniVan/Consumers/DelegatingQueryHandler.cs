@@ -11,7 +11,7 @@ namespace MiniVan.Consumers
 
 		public DelegatingQueryHandler(Func<Rq, Rs> delegatingFunction)
 		{
-			Ensure.NotNull(delegatingFunction, nameof(delegatingFunction));
+			Ensure.NotNull(delegatingFunction, "delegatingFunction");
 			_delegate = delegatingFunction;
 		}
 

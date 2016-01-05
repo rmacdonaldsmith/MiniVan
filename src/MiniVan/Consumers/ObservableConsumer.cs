@@ -15,7 +15,7 @@ namespace MiniVan.Consumers
 
 		public ObservableConsumerWrapper (IConsume<T> consumer)
 		{
-			Ensure.NotNull (consumer, nameof(consumer));
+			Ensure.NotNull (consumer, "consumer");
 
 			_innerConsumer = consumer;
 		}
